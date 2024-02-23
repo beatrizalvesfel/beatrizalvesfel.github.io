@@ -35,6 +35,48 @@
         display: none;
     }
     
+    #menuIcon {
+        width: 32px;
+        height: 32px;
+        position: relative;
+        cursor: pointer;
+        transition: 0.2s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display: none;
+    }
+    
+    #menuIcon.active::before {
+        transform: translateY(0px) rotate(45deg);
+        box-shadow: 0 0 0 #fff;
+    }
+    
+    #menuIcon.active::after {
+        transform: translateY(0px) rotate(-45deg);
+    }
+    
+    #menuIcon::before {
+        content: '';
+        width: 32px;
+        height: 4px;
+        background: #fff;
+        position: absolute;
+        transition: 0.2s;
+        transform: translateY(-15px);
+        box-shadow: 0 15px 0 #fff;
+    }
+    
+    #menuIcon::after {
+        content: '';
+        width: 32px;
+        height: 4px;
+        background: #fff;
+        position: absolute;
+        transition: 0.2s;
+        transform: translateY(15px);
+    }
+    
     ul {
         display: flex;
         list-style: none;
@@ -51,12 +93,15 @@
     }
     
     .nav-bar {
+        width: 100vw;
+        justify-content: center;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        left: 0;
+        padding: 16px;
         position: fixed;
         top: 0;
-        background-color: #000000;
+        background-color: #121212;
     }
     
     .nav-link {
@@ -298,8 +343,13 @@
     }
     
     @media (max-width:980px) {
+        #menuIcon {
+            display: flex;
+        }
         .nav-bar {
-            right: 22px;
+            min-width: 100%;
+            justify-content: space-evenly;
+            padding: 16px;
         }
         .menu {
             width: 100%;
@@ -310,19 +360,20 @@
         nav ul {
             position: fixed;
             top: 80px;
-            left: -120%;
+            right: -120%;
             background-color: #121212;
             height: 100vh;
             width: 100%;
             text-align: center;
             display: block;
             transition: all 0.3s ease;
+            margin: 0;
         }
         .cv {
             width: 100%;
         }
         nav ul.open {
-            left: 0;
+            right: 0;
             padding: 0;
         }
         nav ul li {
@@ -403,5 +454,14 @@
         }
         .footer {
             display: none;
+        }
+    }
+    
+    @media (max-width:580px) {
+        .app {
+            width: auto;
+        }
+        nav ul {
+            right: -130%;
         }
     }
