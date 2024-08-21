@@ -353,9 +353,10 @@
         }
 
         .nav-bar {
-            width: 90%;
+            width: 84%;
             justify-content: space-between;
-            padding: 16px;
+            padding: 0 12px;
+            margin: 0;
         }
 
         .menu {
@@ -372,7 +373,7 @@
 
         nav ul {
             position: fixed;
-            top: 80px;
+            top: 50px;
             right: -120%;
             background-color: #121212;
             height: 100vh;
@@ -384,21 +385,25 @@
         }
 
         .cv {
-            width: 100%;
+            width: 60%;
         }
 
         nav ul.open {
             right: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
         }
 
         nav ul li {
             width: 100%;
-            margin: 50px 0;
+            margin: 24px 0;
         }
 
         nav ul li a {
-            font-size: 23px;
+            font-size: 14px;
         }
 
         nav ul li a.active,
