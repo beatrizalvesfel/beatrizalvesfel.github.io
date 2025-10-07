@@ -37,7 +37,7 @@ export function Navigation() {
           : "bg-transparent"
       )}
     >
-      <nav className="container mx-auto px-4 sm:px-6 lg:px-8 bg-brand-dark">
+      <nav className="container mx-auto px-4 sm:px-6 lg:px-8 bg-[#0b0b0b]">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Logo variant="white" />
