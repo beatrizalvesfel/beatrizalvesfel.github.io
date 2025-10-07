@@ -4,13 +4,23 @@ import { motion } from "framer-motion";
 import { ExternalLink, Eye } from "lucide-react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from "@/components/ui/carousel";
+import { useEffect, useState } from "react";
 
 const projects = [
+
   {
-    title: "Squilo Saúde",
-    tech: "Angular",
-    image: "/images/squilo.png",
-    link: "https://squilosaude.com.br/app/#/register",
+    title: "Servify",
+    tech: ["Next", "UX/UI"],
+    image: "/images/servify.png",
+    link: "https://servify.com.br/",
     category: "Web App",
   },
   {
@@ -21,11 +31,47 @@ const projects = [
     category: "Website",
   },
   {
-    title: "DS Deliver",
-    tech: "React",
-    image: "/images/ds.png",
-    link: "https://sds2beatrizalves.netlify.app/",
+    title: "FSW Barber",
+    tech: "React • Next",
+    image: "/images/fsw.png",
+    link: "https://fsw-barber-five-liart.vercel.app/",
     category: "Web App",
+  },
+
+  {
+    title: "Blackfy Marketplace",
+    tech: ["Next", "UX/UI"],
+    image: "/images/blackfy-marketplace.png",
+    link: "https://marketplace.blackfy.tech/",
+    category: "Web App",
+  },
+  {
+    title: "Blackfy Cloaker",
+    tech: ["Next", "UX/UI"],
+    image: "/images/blackfy-cloaker.png",
+    link: "https://cloaker.blackfy.tech/",
+    category: "Web App",
+  },
+  {
+    title: "Blackfy Login",
+    tech: ["Next", "UX/UI"],
+    image: "/images/blackfy-login.png",
+    link: "https://login.blackfy.tech/",
+    category: "Web App",
+  },
+  {
+    title: "Pede Aqui",
+    tech: "JavaScript",
+    image: "/images/delivery.png",
+    link: "https://pedefacildelivery.netlify.app/",
+    category: "Web App",
+  },
+  {
+    title: "FullStack Designer",
+    tech: "UI/UX",
+    image: "/images/FullStackDesigner.png",
+    link: "/",
+    category: "Design",
   },
   {
     title: "Move Itaigara",
@@ -49,29 +95,33 @@ const projects = [
     category: "Website",
   },
   {
-    title: "FSW Barber",
-    tech: "React • Next",
-    image: "/images/fsw.png",
-    link: "https://fsw-barber-five-liart.vercel.app/",
+    title: "DS Deliver",
+    tech: "React",
+    image: "/images/ds.png",
+    link: "https://sds2beatrizalves.netlify.app/",
     category: "Web App",
   },
-  {
-    title: "Pede Aqui",
-    tech: "JavaScript",
-    image: "/images/delivery.png",
-    link: "https://pedefacildelivery.netlify.app/",
-    category: "Web App",
-  },
-  {
-    title: "FullStack Designer",
-    tech: "UI/UX",
-    image: "/images/FullStackDesigner.png",
-    link: "/",
-    category: "Design",
-  },
+
 ];
 
 export function ProjectsSection() {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap() + 1);
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
+
   return (
     <section
       id="projetos"
@@ -120,70 +170,106 @@ export function ProjectsSection() {
           </motion.p>
         </motion.div>
 
-        {/* Projects Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <motion.a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block relative overflow-hidden rounded-2xl bg-brand-dark-secondary border-2 border-brand-gray-light/10 hover:border-brand-teal/50 transition-all duration-300"
-                whileHover={{ y: -8 }}
-              >
-                {/* Image Container */}
-                <div className="relative aspect-video overflow-hidden bg-brand-dark">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={600}
-                    height={400}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-                  
-                  {/* Hover Icon */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      whileHover={{ scale: 1 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                      className="w-16 h-16 bg-brand-teal rounded-full flex items-center justify-center shadow-2xl"
+        {/* Carousel Container */}
+        <div className="relative max-w-7xl mx-auto">
+          <Carousel
+            setApi={setApi}
+            opts={{
+              align: "start",
+              loop: false,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              {projects.map((project, index) => (
+                <CarouselItem key={project.title} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <motion.a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group block relative overflow-hidden rounded-2xl bg-brand-dark-secondary border-2 border-brand-gray-light/10 hover:border-brand-teal/50 transition-all duration-300"
+                      whileHover={{ y: -8 }}
                     >
-                      <Eye className="w-8 h-8 text-white" />
-                    </motion.div>
-                  </div>
-                </div>
+                      {/* Image Container */}
+                      <div className="relative aspect-video overflow-hidden bg-brand-dark">
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          width={600}
+                          height={400}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        {/* Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                        
+                        {/* Hover Icon */}
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <motion.div
+                            initial={{ scale: 0 }}
+                            whileHover={{ scale: 1 }}
+                            transition={{ type: "spring", stiffness: 300 }}
+                            className="w-16 h-16 bg-brand-teal rounded-full flex items-center justify-center shadow-2xl"
+                          >
+                            <Eye className="w-8 h-8 text-white" />
+                          </motion.div>
+                        </div>
+                      </div>
 
-                {/* Content */}
-                <div className="p-6">
-                  <div className="flex items-start justify-between gap-4 mb-3">
-                    <h3 className="text-xl font-bold text-white">
-                      {project.title}
-                    </h3>
-                    <ExternalLink className="w-5 h-5 text-white flex-shrink-0 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                  </div>
-                  <div className="flex items-center gap-2">
-                  <Badge className="bg-brand-teal/90 backdrop-blur-sm">
-                      {project.category}
-                    </Badge>
-                  <Badge variant="outline" className="text-brand-green border-brand-green">
-                    {project.tech}
-                  </Badge>
-                  </div>
-                </div>
-              </motion.a>
-            </motion.div>
-          ))}
+                      {/* Content */}
+                      <div className="p-6">
+                        <div className="flex items-start justify-between gap-4 mb-3">
+                          <h3 className="text-xl font-bold text-white">
+                            {project.title}
+                          </h3>
+                          <ExternalLink className="w-5 h-5 text-white flex-shrink-0 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                        </div>
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <Badge className="bg-brand-teal/90 backdrop-blur-sm">
+                            {project.category}
+                          </Badge>
+                          {Array.isArray(project.tech) ? (
+                            project.tech.map((tech, techIndex) => (
+                              <Badge key={techIndex} variant="outline" className="text-brand-green border-brand-green">
+                                {tech}
+                              </Badge>
+                            ))
+                          ) : (
+                            <Badge variant="outline" className="text-brand-green border-brand-green">
+                              {project.tech}
+                            </Badge>
+                          )}
+                        </div>
+                      </div>
+                    </motion.a>
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+
+          {/* Bullets - Below cards */}
+          <div className="flex justify-center gap-2 mt-8">
+            {Array.from({ length: count }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => api?.scrollTo(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  current === index + 1
+                    ? 'bg-brand-teal'
+                    : 'bg-brand-gray-light/30'
+                }`}
+              />
+            ))}
+          </div>
         </div>
-       
       </div>
     </section>
   );
