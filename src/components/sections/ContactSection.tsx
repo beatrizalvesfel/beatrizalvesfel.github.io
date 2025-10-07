@@ -101,12 +101,12 @@ export function ContactSection() {
                     Vamos transformar suas ideias em realidade. Entre em contato
                     e receba uma proposta personalizada em até 24h!
                   </p>
-                  <div className="flex flex-wrap gap-4">
+                  <div className="flex flex-col sm:flex-row gap-4">
                     <Button
                       asChild
                       size="lg"
                       variant="secondary"
-                      className="bg-white text-brand-teal hover:bg-white/90"
+                      className="bg-white text-brand-teal hover:bg-white/90 w-full sm:w-auto"
                     >
                       <a
                         href="https://wa.me/5575999161771"
@@ -121,7 +121,7 @@ export function ContactSection() {
                       asChild
                       size="lg"
                       variant="outline"
-                      className="border-white text-white hover:bg-white/10"
+                      className="border-white text-white hover:bg-white/10 w-full sm:w-auto"
                     >
                       <a href="/cv/BEATRIZ-ALVES-CV.pdf" download>
                         <Download className="w-5 h-5" />
