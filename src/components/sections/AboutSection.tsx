@@ -83,7 +83,7 @@ export function AboutSection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 }}
                 viewport={{ once: true }}
-                className="absolute -bottom-6 -right-6 glass-effect p-6 rounded-2xl shadow-xl"
+                className="absolute -bottom-6 right-2 lg:-right-6 glass-effect p-6 rounded-2xl shadow-xl"
               >
                 <div className="text-4xl font-bold text-white">6+</div>
                 <div className="text-sm text-white">Anos de</div>
