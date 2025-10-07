@@ -26,7 +26,7 @@ export function HeroSection() {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -105,7 +105,7 @@ export function HeroSection() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative flex justify-center lg:justify-end"
+            className="relative flex justify-center lg:justify-end my-24 lg:my-0"
           >
             <div className="relative w-full max-w-lg">
               {/* Animated Gradient Background */}
@@ -156,7 +156,7 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 }}
-                className="absolute -bottom-8 -right-11 glass-effect rounded-xl p-4 shadow-xl backdrop-blur-lg"
+                className="absolute -bottom-8 right-4 lg:-right-11 glass-effect rounded-xl p-4 shadow-xl backdrop-blur-lg"
               >
                 <div className="grid grid-cols-1 gap-4 text-center">
                   <div>
@@ -171,7 +171,7 @@ export function HeroSection() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1 }}
-                className="absolute -top-8 -left-32 glass-effect rounded-xl p-4 max-w-[260px]"
+                className="absolute -top-32 left-0 lg:-left-32 glass-effect rounded-xl p-4 max-w-[260px]"
               >
                 <p className="text-sm text-brand-almost-white">
                   “A Beatriz entendeu exatamente o que eu precisava. Minha nova identidade é elegante e autêntica — meus pacientes elogiam até hoje.”
