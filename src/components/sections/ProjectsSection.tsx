@@ -17,7 +17,7 @@ const projects = [
     title: "TuxNet",
     tech: "Angular",
     image: "/images/tux.png",
-    link: "https://www.redetuxnet.com.br/home",
+    link: "https://www.redetuxnet.com.br",
     category: "Website",
   },
   {
