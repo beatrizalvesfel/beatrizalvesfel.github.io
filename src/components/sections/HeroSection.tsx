@@ -156,7 +156,7 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 }}
-                className="absolute -bottom-8 right-4 lg:-right-11 glass-effect rounded-xl p-4 shadow-xl backdrop-blur-lg"
+                className="absolute -bottom-8 right-4 lg:-right-3 glass-effect rounded-xl p-4 shadow-xl backdrop-blur-lg"
               >
                 <div className="grid grid-cols-1 gap-4 text-center">
                   <div>

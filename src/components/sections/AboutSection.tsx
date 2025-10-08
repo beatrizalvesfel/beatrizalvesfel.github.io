@@ -7,8 +7,8 @@ import { Badge } from "@/components/ui/badge";
 const skills = [
   { name: "UI/UX Design", level: 95, color: "bg-brand-teal" },
   { name: "Website Design", level: 90, color: "bg-brand-teal" },
-  { name: "Angular", level: 85, color: "bg-brand-teal" },
-  { name: "ReactJS", level: 95, color: "bg-brand-teal" },
+  { name: "Angular", level: 75, color: "bg-brand-teal" },
+  { name: "ReactJS", level: 85, color: "bg-brand-teal" },
   { name: "NextJS", level: 95, color: "bg-brand-teal" },
   { name: "TypeScript", level: 90, color: "bg-brand-teal" },
 ];
@@ -129,10 +129,10 @@ export function AboutSection() {
               viewport={{ once: true }}
               className="text-brand-gray-light text-lg mb-8 leading-relaxed"
             >
-              Me chamo Beatriz Alves, formada em Sistemas de Informação e
+              Formada em Sistemas de Informação e
               apaixonada por design e tecnologias do desenvolvimento Web.
               Transformo ideias em experiências digitais memoráveis, combinando
-              design criativo com código limpo e eficiente.
+              design criativo, código limpo e eficiente.
             </motion.p>
 
             {/* Technologies */}
@@ -163,9 +163,7 @@ export function AboutSection() {
               viewport={{ once: true }}
               className="space-y-4"
             >
-              <h3 className="text-lg font-semibold text-white mb-4">
-                Habilidades
-              </h3>
+              
               {skills.map((skill, index) => (
                 <div key={skill.name}>
                   <div className="flex justify-between mb-2">

@@ -159,15 +159,6 @@ export function ProjectsSection() {
           >
             Projetos <span className="text-brand-teal">Recentes</span>
           </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            viewport={{ once: true }}
-            className="text-brand-gray-light text-lg"
-          >
-            Transformando ideias em experiências digitais memoráveis
-          </motion.p>
         </motion.div>
 
         {/* Carousel Container */}
@@ -183,18 +174,13 @@ export function ProjectsSection() {
             <CarouselContent className="-ml-4">
               {projects.map((project, index) => (
                 <CarouselItem key={project.title} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
+                  <div
                   >
-                    <motion.a
+                    <a
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group block relative overflow-hidden rounded-2xl bg-brand-dark-secondary border-2 border-brand-gray-light/10 hover:border-brand-teal/50 transition-all duration-300"
-                      whileHover={{ y: -8 }}
                     >
                       {/* Image Container */}
                       <div className="relative aspect-video overflow-hidden bg-brand-dark">
@@ -210,14 +196,11 @@ export function ProjectsSection() {
                         
                         {/* Hover Icon */}
                         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <motion.div
-                            initial={{ scale: 0 }}
-                            whileHover={{ scale: 1 }}
-                            transition={{ type: "spring", stiffness: 300 }}
+                          <div
                             className="w-16 h-16 bg-brand-teal rounded-full flex items-center justify-center shadow-2xl"
                           >
                             <Eye className="w-8 h-8 text-white" />
-                          </motion.div>
+                          </div>
                         </div>
                       </div>
 
@@ -246,8 +229,8 @@ export function ProjectsSection() {
                           )}
                         </div>
                       </div>
-                    </motion.a>
-                  </motion.div>
+                    </a>
+                  </div>
                 </CarouselItem>
               ))}
             </CarouselContent>

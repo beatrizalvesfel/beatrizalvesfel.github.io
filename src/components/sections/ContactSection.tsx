@@ -69,17 +69,6 @@ export function ContactSection() {
           >
             Vamos <span className="text-brand-teal">Conversar?</span>
           </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            viewport={{ once: true }}
-            className="text-brand-gray-light text-lg"
-          >
-            Em caso de dúvidas, sugestões, ou caso queira propor projetos.
-            <br className="hidden sm:block" />
-            Escolha a melhor forma de entrar em contato comigo!
-          </motion.p>
         </motion.div>
 
         {/* Main CTA Card */}
@@ -145,47 +134,6 @@ export function ContactSection() {
               </div>
             </CardContent>
           </Card>
-        </motion.div>
-
-        {/* Contact Methods */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          viewport={{ once: true }}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16"
-        >
-          {contactMethods.map((method, index) => {
-            const Icon = method.icon;
-            return (
-              <motion.a
-                key={method.title}
-                href={method.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 + index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -8, scale: 1.02 }}
-                className="block"
-              >
-                <Card className="h-full glass-effect hover:border-brand-teal hover:shadow-xl transition-all duration-300 group">
-                  <CardContent className="p-6 text-center">
-                    <div className={`w-16 h-16 ${method.color} ${method.hoverColor} rounded-2xl flex items-center justify-center mx-auto mb-4 transition-colors shadow-lg`}>
-                      <Icon className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-brand-teal transition-colors">
-                      {method.title}
-                    </h3>
-                    <p className="text-brand-gray-light">
-                      {method.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.a>
-            );
-          })}
         </motion.div>
       </div>
     </section>

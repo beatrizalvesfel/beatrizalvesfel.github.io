@@ -71,15 +71,6 @@ export function ServicesSection() {
           >
             Meus <span className="text-brand-teal">Serviços</span>
           </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            viewport={{ once: true }}
-            className="text-brand-gray-light text-lg"
-          >
-            Soluções completas para transformar sua presença digital em resultados reais
-          </motion.p>
         </motion.div>
 
         {/* Services Grid */}
