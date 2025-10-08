@@ -38,7 +38,7 @@ export function ServicesSection() {
   return (
     <section
       id="servicos"
-      className="py-20 bg-[#0b0b0b] relative overflow-hidden"
+      className="py-16 bg-[#0b0b0b] relative overflow-hidden"
     >
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-brand-teal/10 rounded-full blur-3xl" />

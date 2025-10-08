@@ -36,40 +36,13 @@ export function ContactSection() {
   return (
     <section
       id="contato"
-      className="py-20 bg-[#0b0b0b] relative overflow-hidden"
+      className="py-16 bg-[#0b0b0b] relative overflow-hidden"
     >
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-brand-teal/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-teal/10 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto mb-16"
-        >
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            viewport={{ once: true }}
-            className="text-brand-green font-semibold text-sm uppercase tracking-wider"
-          >
-            Let&apos;s Program Together
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            viewport={{ once: true }}
-            className="text-4xl lg:text-5xl font-bold text-white mt-3 mb-6"
-          >
-            Vamos <span className="text-brand-teal">Conversar?</span>
-          </motion.h2>
-        </motion.div>
 
         {/* Main CTA Card */}
         <motion.div

@@ -36,7 +36,7 @@ export function Footer() {
     <footer className="bg-[#0b0b0b] text-white border-t border-brand-gray-light/10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
-        <div className="py-12 grid md:grid-cols-3 gap-8 border-b border-brand-gray-light/20">
+        <div className="py-16 grid md:grid-cols-3 gap-8 border-b border-brand-gray-light/20">
           {/* Brand Section */}
           <div>
             <Logo variant="white" className="mb-4" />

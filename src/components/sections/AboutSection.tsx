@@ -22,7 +22,7 @@ export function AboutSection() {
   return (
     <section
       id="sobre"
-      className="py-20 bg-[#0b0b0b] relative overflow-hidden"
+      className="py-16 bg-[#0b0b0b] relative overflow-hidden"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0">

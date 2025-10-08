@@ -49,11 +49,12 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-5xl sm:text-6xl lg:text-8xl font-extrabold text-white mb-4 tracking-tight"
+              className="text-5xl sm:text-6x1 font-extrabold text-white mb-4 tracking-tight"
             >
               Beatriz{" "}
               <span className="relative inline-block">
                 <span className="text-brand-teal">Alves</span>
+
                 <motion.span
                   className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-brand-teal to-brand-green"
                   initial={{ width: 0 }}
@@ -69,14 +70,11 @@ export function HeroSection() {
               transition={{ delay: 0.2 }}
               className="mb-8"
             >
-              <div className="flex items-center gap-3 justify-center lg:justify-start mb-2">
-                <Code2 className="w-8 h-8 text-brand-teal" />
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
                   Front End Engineer
                 </h2>
-              </div>
               <p className="text-brand-gray-light/80 max-w-xl mx-auto lg:mx-0">
-                Eu construo interfaces performáticas, acessíveis e com visual impecável, unindo design e código para gerar impacto real no seu negócio.
+                Construo interfaces performáticas, acessíveis e com visual impecável, unindo design e código para gerar impacto real no seu negócio.
               </p>
             </motion.div>
 
