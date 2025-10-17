@@ -155,39 +155,6 @@ export function AboutSection() {
               </div>
             </motion.div>
 
-            {/* Skills Progress Bars */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              viewport={{ once: true }}
-              className="space-y-4"
-            >
-              
-              {skills.map((skill, index) => (
-                <div key={skill.name}>
-                  <div className="flex justify-between mb-2">
-                    <span className="text-sm font-medium text-white">
-                      {skill.name}
-                    </span>
-                    <span className="text-sm font-semibold text-white bg-brand-teal/20 px-2 py-0.5 rounded-md">
-                      {skill.level}%
-                    </span>
-                  </div>
-                  <div className="h-2 bg-brand-dark-secondary rounded-full overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
-                      transition={{ duration: 1, delay: 0.7 + index * 0.1 }}
-                      viewport={{ once: true }}
-                      className={`h-full ${skill.color} rounded-full relative`}
-                    >
-                      <div className="absolute inset-0 bg-white/20 animate-pulse" />
-                    </motion.div>
-                  </div>
-                </div>
-              ))}
-            </motion.div>
           </motion.div>
         </div>
       </div>
