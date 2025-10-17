@@ -85,7 +85,7 @@ export function AboutSection() {
                 viewport={{ once: true }}
                 className="absolute -bottom-6 right-2 lg:-right-6 glass-effect p-6 rounded-2xl shadow-xl"
               >
-                <div className="text-4xl font-bold text-white">6+</div>
+                <div className="text-4xl font-bold text-white">+6</div>
                 <div className="text-sm text-white">Anos de</div>
                 <div className="text-sm text-white">Experiência</div>
               </motion.div>
